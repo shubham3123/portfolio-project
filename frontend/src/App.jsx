@@ -39,7 +39,7 @@ export default function App() {
 
     try {
       // Using relative path to match Vercel/Local monolithic execution
-      const response = await fetch('/api/requests', {
+      const response = await fetch('https://shubh-portfolio-backend.vercel.app/api/requests', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
