@@ -3,11 +3,11 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-const app = express();
-
 // 1. GLOBAL MIDDLEWARE
 app.use(cors());
 app.use(express.json());
+
+const app = express();
 
 // 2. SELF-CONTAINED DATABASE CONNECTION LAYER
 const connectDB = async () => {
