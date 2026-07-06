@@ -39,11 +39,14 @@ export default function App() {
 
     try {
       // Using relative path to match Vercel/Local monolithic execution
-      const response = await fetch('https://shubh-portfolio-backend.vercel.app/api/requests', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
+      // ✅ Update this line to point to your live backend URL:
+const response = await fetch('https://YOUR-BACKEND-NAME.vercel.app/api/requests', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(formData),
+});
       
       const data = await response.json();
       if (data.success) {
