@@ -52,6 +52,11 @@ const RequestSchema = new mongoose.Schema({
 
 const Request = mongoose.model('Request', RequestSchema);
 
+
+app.get('/', (req, res) => {
+  res.send('🚀 Express Backend Server is running successfully on Vercel!');
+});
+
 // 4. API ROUTE ENDPOINTS
 app.post('/api/requests', async (req, res) => {
   try {
