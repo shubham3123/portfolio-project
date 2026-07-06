@@ -78,7 +78,7 @@ app.post('/api/requests', async (req, res) => {
     return res.status(201).json({ success: true, message: "Portfolio request compiled and saved successfully!" });
 
   } catch (error) {
-    console.error("❌ Submission Route Error:", error.message);
+    
     return res.status(500).json({ success: false, error: "Internal Database processing failure." });
   }
 });
