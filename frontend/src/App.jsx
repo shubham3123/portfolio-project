@@ -40,7 +40,7 @@ export default function App() {
     try {
       // Using relative path to match Vercel/Local monolithic execution
       // ✅ Update this line to point to your live backend URL:
-const response = await fetch('portfolio-project-backend-j8uhgt998-invictus-technologies.vercel.app/api/requests', {
+const response = await fetch('https://portfolio-project-backend-j8uhgt998-invictus-technologies.vercel.app/api/requests', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
