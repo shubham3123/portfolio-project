@@ -8,6 +8,14 @@
   ],
   "rewrites": [
     {
+      "source": "/api/requests",
+      "destination": "server.js"
+    },
+    {
+      "source": "/api/requests/",
+      "destination": "server.js"
+    },
+    {
       "source": "/(.*)",
       "destination": "server.js"
     }
