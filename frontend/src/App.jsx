@@ -247,14 +247,17 @@ const response = await fetch('https://portfolio-project-backend-phi.vercel.app/a
     Invictus Technologies is an <strong className="text-white">MSME Registered Enterprise</strong> (Govt. of India)
   </p>
 </div>
-<div className="flex items-center justify-center gap-2 text-sm text-gray-400 mt-4">
-  <span className="inline-block w-2 h-2 rounded-full bg-green-500"></span>
-  <p>
-    Invictus Technologies is an <strong className="text-white">MSME Registered Enterprise</strong> (Govt. of India)
-  </p>
-</div>
+
         </div>
       </section>
     </div>
   );
+
+  {/* MSME Compliance Footer Line */}
+      <footer className="w-full text-center py-6 border-t border-gray-150 text-xs text-gray-500 mt-12">
+        <p>© {new Date().getFullYear()} Invictus Technologies. All rights reserved.</p>
+        <p className="mt-1 font-medium tracking-wide text-gray-600">
+          🇮🇳 Govt. of India MSME Registered Enterprise
+        </p>
+      </footer>
 }
