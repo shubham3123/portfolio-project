@@ -1,13 +1,18 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-require('dotenv').config();
+
+// Only load dotenv if we are running locally
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
+// 🚀 INITIALIZE EXPRESS APP FIRST BEFORE USING IT
+const app = express();
 
 // 1. GLOBAL MIDDLEWARE
 app.use(cors());
 app.use(express.json());
-
-const app = express();
 
 // 2. SELF-CONTAINED DATABASE CONNECTION LAYER
 const connectDB = async () => {
@@ -16,15 +21,14 @@ const connectDB = async () => {
     console.log('⏳ Attempting to connect to MongoDB Atlas...');
     
     if (!process.env.MONGO_URI) {
-      console.log('❌ CRITICAL ERROR: MONGO_URI is missing from your .env file!');
+      console.log('❌ CRITICAL ERROR: MONGO_URI is missing from your Environment Variables!');
       return;
     }
     
     console.log(`🔗 Target Connection String Loaded Safely.`);
 
-    // Advanced connection flags to eliminate the OpenSSL alert 80 error
     await mongoose.connect(process.env.MONGO_URI, {
-      tlsAllowInvalidCertificates: true // Bypasses local VPN/Antivirus proxy SSL injection hooks
+      tlsAllowInvalidCertificates: true 
     });
 
     console.log('✅ MongoDB Connected Successfully to Cloud Atlas!');
@@ -52,7 +56,6 @@ const RequestSchema = new mongoose.Schema({
 
 const Request = mongoose.model('Request', RequestSchema);
 
-
 app.get('/', (req, res) => {
   res.send('🚀 Express Backend Server is running successfully on Vercel!');
 });
@@ -78,16 +81,17 @@ app.post('/api/requests', async (req, res) => {
     return res.status(201).json({ success: true, message: "Portfolio request compiled and saved successfully!" });
 
   } catch (error) {
-    
     return res.status(500).json({ success: false, error: "Internal Database processing failure." });
   }
 });
 
-// 5. BOOT SERVER LISTENER
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`🚀 Express App active and monitoring Port: ${PORT}`);
+// 5. BOOT SERVER LISTENER (Conditional for Local Env)
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`🚀 Express App active locally on Port: ${PORT}`);
+  });
+}
 
-  module.exports = app;
-});
-
+// CRITICAL FOR VERCEL SERVERLESS ENVIRONMENT: Must be exported globally at the bottom
+module.exports = app;
