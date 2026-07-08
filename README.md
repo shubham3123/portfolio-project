@@ -1,19 +1,16 @@
-﻿# portfolio-project
+# Invictus Technologies - Developer Portfolio
+
+A full-stack MERN application built to showcase my featured projects and handle client callback requests seamlessly.
 
 ____________________________________________________________________________________________________________________________________________________________
-**A Portfolio Web Application for my Freelancing Software Development Startup.**
+## 🚀 Live Demo
 
-**_*Built using*_**
+https://shubham-portfolio-mu-smoky.vercel.app/
 
--**HTML**
+____________________________________________________________________________________________________________________________________________________________
+## 🛠️ Tech Stack
 
--**MongoDB**
-
--**Tailwind CSS**
-
--**Javascript** and its Frameworks and/or Libraries such as:-
-+ **React.js**
-+ **Node.js**
-+ **Express.js**
-+ **Vite**
+- **Frontend:** React, Vite, Tailwind CSS, Lucide React
+- **Backend:** Node.js, Express.js, Vercel Serverless Functions
+- **Database:** MongoDB Atlas (Mongoose)
 ____________________________________________________________________________________________________________________________________________________________
